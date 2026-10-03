@@ -1,0 +1,10 @@
+(() => {
+ const entrance=document.getElementById('city-entrance'),form=document.getElementById('city-form'),input=document.getElementById('arrival-city'),error=document.getElementById('city-error');let entering=false;
+ const background=[document.querySelector('header'),document.querySelector('main')];background.forEach(x=>x.inert=true);
+ function finish(){entrance.hidden=true;document.body.classList.remove('at-door');form.classList.remove('paper-falling');entering=false;background.forEach(x=>x.inert=false);document.getElementById('work-query')?.focus();}
+ window.showCityEntrance=()=>{entrance.hidden=false;document.body.classList.add('at-door');background.forEach(x=>x.inert=true);error.textContent='';input.focus();};
+ const directory=document.getElementById('city-directory'),toggle=document.getElementById('all-cities-toggle');toggle.addEventListener('click',()=>{directory.hidden=!directory.hidden;toggle.setAttribute('aria-expanded',String(!directory.hidden));toggle.textContent=directory.hidden?'查看全部城市 ↓':'收起城市 ↑';});
+ async function cities(){try{const list=await window.metroCities();document.getElementById('available-cities').replaceChildren(...list.map(c=>{const x=document.createElement('option');x.value=c.cityname.replace(/市$/,'');return x;}));directory.replaceChildren(...list.map(c=>{const b=document.createElement('button');b.type='button';b.textContent=c.cityname.replace(/市$/,'');b.addEventListener('click',()=>{input.value=b.textContent;form.requestSubmit();});return b;}));}catch{error.textContent='城市列表读取失败，请稍后重试。';}}
+ cities();
+ form.addEventListener('submit',async event=>{event.preventDefault();if(entering)return;entering=true;error.textContent='';try{await window.selectMetroCity(input.value);if(matchMedia('(prefers-reduced-motion: reduce)').matches){finish();return;}form.classList.add('paper-falling');form.addEventListener('animationend',finish,{once:true});setTimeout(()=>{if(entering)finish();},850);}catch(e){entering=false;error.textContent=e.message;input.focus();}});
+})();

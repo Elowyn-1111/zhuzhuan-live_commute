@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f0e6" />
+    <title>住住安 · 找到刚刚好的家</title>
+    <link rel="stylesheet" href="styles.css?v=20261003-filters6" />
+    <link rel="stylesheet" href="organic.css?v=20261003-filters6" />
+  <link rel="stylesheet" href="minimal.css?v=20261003-filters6" /></head>
+  <body class="at-door">
+<section class="arrival minimal-arrival" id="city-entrance" aria-label="选择城市">
+ <div class="arrival-brand"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 31L32 12L54 31M17 27V53H47V27" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 53V38H37V53" fill="#bed1bf" stroke="currentColor" stroke-width="2"/><path d="M24 27Q32 34 40 27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong>住住安</strong><p>沿着地铁，找到合适的小区</p></div></div>
+ <form class="city-paper minimal-paper" id="city-form"><label class="sr-only" for="arrival-city">选择城市</label><div class="city-input"><span aria-hidden="true">⌕</span><input id="arrival-city" name="city" placeholder="选择城市" list="available-cities" autocomplete="off" required aria-describedby="city-error"/><datalist id="available-cities"></datalist><button type="submit" aria-label="进入城市">→</button></div><button type="button" class="all-cities-toggle" id="all-cities-toggle" aria-expanded="false" aria-controls="city-directory">查看全部城市 ↓</button><p id="city-error" class="city-error" role="alert"></p></form><div class="city-directory" id="city-directory" hidden aria-label="全部地铁城市"></div>
+</section>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="住住安首页"><span class="brand-mark"><span></span><span></span><span></span></span><span class="brand-name">住住安</span></a>
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-item active" data-view="commute">通勤找房</button>
+        <button class="nav-item" data-view="notes">租房便利贴</button>
+        <button class="nav-item" data-view="favorites">我的收藏 <span class="nav-count" id="favorite-count">0</span></button>
+      </nav>
+      <div class="journey-step" id="journey-step">01 / 我的通勤圈</div><div class="top-actions"><button class="city-button" id="city-button" title="切换城市"><span class="pin-small">●</span> 上海 <span class="chevron">⌄</span></button><button class="avatar-button" id="account-button" aria-label="本机发布与设置">安</button></div>
+    </header>
+    <main class="app-main" id="app-main">
+      <aside class="left-rail" id="left-rail"></aside>
+      <section class="map-stage" id="map-stage" aria-label="小区地图">
+        <section class="notes-wall" id="notes-view" hidden aria-label="租房便利贴墙"></section>
+        <div class="map-canvas" id="map-canvas"><div id="amap-container" aria-label="高德地图"></div><div class="demo-map" id="demo-map" aria-label="上海河西示意地图"><div class="map-land land-one"></div><div class="map-land land-two"></div><div class="map-land land-three"></div><div class="waterway waterway-one"></div><div class="waterway waterway-two"></div><div class="park park-one"><span>静安公园</span></div><div class="park park-two"><span>中山公园</span></div><div class="road road-a"></div><div class="road road-b"></div><div class="road road-c"></div><div class="road road-d"></div><div class="road road-e"></div><div class="road road-f"></div><div class="road road-g"></div><div class="road road-h"></div><div class="road road-i"></div><div class="road road-j"></div><div class="road road-k"></div><div class="metro-line metro-blue"></div><div class="metro-line metro-green"></div><div class="map-label label-one">静安梧桐街区</div><div class="map-label label-two">静安寺</div><div class="map-label label-three">徐汇区</div><div class="map-label label-four">苏州河</div><div id="demo-markers"></div></div></div>
+        <div class="map-topline"><div class="map-location"><span class="location-dot"></span><span id="map-location-text">上海 · 静安梧桐街区</span><span class="map-separator">/</span><span class="map-zoom-label" id="map-zoom-label">通勤范围</span></div><button class="map-layer-button" id="map-settings-button" title="地图设置"><span class="gear-icon">⚙</span><span>地图设置</span></button></div>
+        <div class="map-bottomline"><span class="map-provider" id="map-provider-status" role="status"><i></i>演示地图</span><span class="map-scale">1 km</span><div class="zoom-controls"><button id="zoom-in" aria-label="放大地图" title="放大">+</button><button id="zoom-out" aria-label="缩小地图" title="缩小">−</button></div></div>
+        <div class="map-hint" id="map-hint"><span class="hint-star">★</span> 通勤起点 · 静安寺</div>
+      </section>
+      <aside class="right-rail" id="right-rail"></aside>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div><div class="modal-layer" id="modal-layer" hidden></div>
+    <script src="data.js?v=20261003-filters6"></script><script src="metro.js?v=20261003-filters6"></script><script src="app.js?v=20261003-filters6"></script><script src="arrival.js?v=20261003-filters6"></script>
+  </body>
+</html>

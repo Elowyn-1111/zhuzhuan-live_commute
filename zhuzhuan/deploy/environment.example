@@ -1,0 +1,13 @@
+NODE_ENV=production
+HOST=127.0.0.1
+PORT=8788
+APP_ORIGIN=https://zhuzhuan.com.cn
+DATA_DIR=/var/lib/zhuzhuan
+TRUST_PROXY=true
+SEED_DEMO=true
+MEDIA_ENABLED=false
+MEDIA_MAX_TOTAL_BYTES=1073741824
+AMAP_JS_KEY=replace-locally
+AMAP_SECURITY_JS_CODE=replace-locally
+AMAP_REST_KEY=replace-locally
+AMAP_DAILY_REQUEST_LIMIT=500

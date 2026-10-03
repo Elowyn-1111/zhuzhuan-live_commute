@@ -1,0 +1,13 @@
+NODE_ENV=development
+HOST=127.0.0.1
+PORT=8788
+APP_ORIGIN=http://localhost:8788
+DATA_DIR=C:\Zhuzhuan\data
+TRUST_PROXY=false
+SEED_DEMO=true
+MEDIA_ENABLED=false
+MEDIA_MAX_TOTAL_BYTES=1073741824
+AMAP_JS_KEY=replace-locally
+AMAP_SECURITY_JS_CODE=replace-locally
+AMAP_REST_KEY=replace-locally
+AMAP_DAILY_REQUEST_LIMIT=500

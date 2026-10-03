@@ -1,0 +1,19 @@
+{
+    storage file_system {
+        root C:/Zhuzhuan/caddy-data
+    }
+    log {
+        output file C:/Zhuzhuan/logs/caddy.log {
+            roll_size 5MiB
+            roll_keep 3
+        }
+    }
+}
+zhuzhuan.com.cn {
+    request_body {
+        max_size 6MB
+    }
+    reverse_proxy 127.0.0.1:8788 {
+        header_up X-Real-IP {remote_host}
+    }
+}

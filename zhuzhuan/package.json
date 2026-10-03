@@ -1,0 +1,20 @@
+{
+  "name": "zhuzhuan",
+  "private": true,
+  "scripts": {
+    "dev": "node server/main.mjs",
+    "db:schema:local": "wrangler d1 execute zhuzhuan-db --local --file=schema.sql",
+    "db:seed:local": "wrangler d1 execute zhuzhuan-db --local --file=seed.sql",
+    "db:schema:remote": "wrangler d1 execute zhuzhuan-db --remote --file=schema.sql",
+    "db:seed:remote": "wrangler d1 execute zhuzhuan-db --remote --file=seed.sql",
+    "db:migrate:remote": "wrangler d1 execute zhuzhuan-db --remote --file=migration.sql",
+    "db:migrate:local": "wrangler d1 execute zhuzhuan-db --local --file=migration.sql",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "start": "node server/main.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
+  },
+  "type": "module"
+}
